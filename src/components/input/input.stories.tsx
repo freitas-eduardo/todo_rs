@@ -1,25 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Trash } from '@phosphor-icons/react'
-import { Button } from './input';
 
-const meta: Meta<typeof Button> = {
-  component: Button,
+import { Input } from './input';
+
+const meta: Meta<typeof Input> = {
+  component: Input,
 };
 
 export default meta;
-type Story = StoryObj<typeof Button>;
+type Story = StoryObj<typeof Input>;
 
 export const Primary: Story = {
   args: {
-    children: 'Button',
-    type: 'primary'
+    placeholder: 'Adicione uma nova tarefa'
   },
 };
 
-
-export const Secondary: Story = {
-  args: {
-    children: <Trash size={16} />,
-    type: 'secondary'
-  },
-};

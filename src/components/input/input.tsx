@@ -1,19 +1,14 @@
 import React from 'react';
 
-import styles from './button.module.scss'
+import styles from './input.module.scss'
 
-export type ButtonProps = {
-  children: React.ReactNode,
-  type?: string
+export type InputProps = {
+  placeholder: string
 }
 
-export const Button: React.FC<ButtonProps> = ({ children, type }) => {
-
-
-
+export const Input: React.FC<InputProps> = ({ placeholder }) => {
   return (
-
-    <input></input>
+    <input className={styles.input} placeholder={placeholder} />
   )
 }
 
