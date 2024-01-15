@@ -12,7 +12,7 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
   args: {
     children: 'Button',
-    type: 'primary'
+    buttonType: 'primary'
   },
 };
 
@@ -20,6 +20,6 @@ export const Primary: Story = {
 export const Secondary: Story = {
   args: {
     children: <Trash size={16} />,
-    type: 'secondary'
+    buttonType: 'secondary'
   },
 };

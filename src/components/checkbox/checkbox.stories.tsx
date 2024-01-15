@@ -9,9 +9,17 @@ const meta: Meta<typeof CheckBox> = {
 export default meta;
 type Story = StoryObj<typeof CheckBox>;
 
-export const Primary: Story = {
+export const Checked: Story = {
   args: {
     isChecked: true
   },
 };
+
+
+export const Unchecked: Story = {
+  args: {
+    isChecked: false
+  },
+};
+
 

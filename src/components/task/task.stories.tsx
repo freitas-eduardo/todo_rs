@@ -9,9 +9,16 @@ const meta: Meta<typeof Task> = {
 export default meta;
 type Story = StoryObj<typeof Task>;
 
-export const Primary: Story = {
+export const Done: Story = {
   args: {
-
+    isDone: false,
+    content: 'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.'
   },
 };
 
+export const Undone: Story = {
+  args: {
+    isDone: true,
+    content: 'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.'
+  },
+};

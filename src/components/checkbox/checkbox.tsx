@@ -7,8 +7,6 @@ export type CheckBoxProps = {
 }
 
 export const CheckBox: React.FC<CheckBoxProps> = ({ isChecked = false }) => {
-
-
   const checkboxStatus = isChecked
     ? styles['checkbox-checked']
     : styles['checkbox-unchecked']

@@ -6,14 +6,15 @@ export type ButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
 > & {
-  children: React.ReactNode | any,
-  buttonType: string
+  children: React.ReactNode,
+  buttonType: string,
+  className?: string,
 }
 
-export const Button: React.FC<ButtonProps> = ({ children, buttonType = 'primary' }) => {
+export const Button: React.FC<ButtonProps> = ({ children, buttonType = 'primary', className = '', ...rest }) => {
   const currentType = buttonType === 'secondary' ? 'secondary' : 'primary'
 
-  return <button className={`button ${styles.button} ${styles[currentType]}`} > {children}</button>;
+  return <button className={`button ${styles.button} ${styles[currentType]} ${className}`} {...rest}  > {children}</button>;
 }
 
 

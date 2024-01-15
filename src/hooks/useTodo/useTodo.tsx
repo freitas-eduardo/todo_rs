@@ -24,9 +24,28 @@ const listOfTasks = [
 export function useTodo() {
   const [todo, setTodo] = useState(listOfTasks)
 
+  const removeTask = (id: string) => {
+    const filteredTasks = todo.filter((it) => it.id !== id)
+    setTodo(filteredTasks)
+
+  }
+
+  const toggleTask = (id: string) => {
+    const updatedTasks = todo.map((task) => {
+      if (task.id === id) return { ...task, isDone: !task.isDone }
+      return { ...task }
+    })
+    setTodo(updatedTasks)
+  }
+
+  const addTask = (newTask: Todo) => {
+    setTodo([...todo, newTask])
+  }
 
   return {
     todo,
-    setTodo
+    toggleTask,
+    addTask,
+    removeTask
   }
 }

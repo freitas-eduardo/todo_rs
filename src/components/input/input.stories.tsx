@@ -9,7 +9,7 @@ const meta: Meta<typeof Input> = {
 export default meta;
 type Story = StoryObj<typeof Input>;
 
-export const Primary: Story = {
+export const _Default: Story = {
   args: {
     placeholder: 'Adicione uma nova tarefa'
   },

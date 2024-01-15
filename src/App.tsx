@@ -1,16 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import Button from './components/button/button'
+
+import { Task } from './components/task'
+import { useTodo } from './hooks'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { todo, removeTask, toggleTask } = useTodo()
 
   return (
-    <>
-      <Button></Button>
-    </>
+    <main>
+      <header>
+
+      </header>
+      <section >
+
+      </section>
+
+    </main>
   )
 }
 
