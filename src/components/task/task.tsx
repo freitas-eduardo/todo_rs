@@ -8,21 +8,23 @@ import { Trash } from '@phosphor-icons/react'
 
 export type TaskProps = {
   isDone: boolean,
-  content: string
+  content: string,
+  removeTask?: () => void
+  toggleUpdateTask: () => void
 }
 
-export const Task: React.FC<TaskProps> = ({ isDone = false, content = '' }) => {
+export const Task: React.FC<TaskProps> = ({ isDone = false, content = '', removeTask, toggleUpdateTask }) => {
   const contentStatus = isDone
     ? styles['content-is--done']
     : ''
 
   return (
     <div className={styles.task}>
-      <CheckBox isChecked={isDone} />
+      <CheckBox isChecked={isDone} toggleStatus={toggleUpdateTask} />
       <div className={`${styles.content} ${contentStatus}`} >
         {content}
       </div>
-      <Button className={styles.action} buttonType='secondary'>
+      <Button onClick={removeTask} className={styles.action} buttonType='secondary'>
         <Trash size={16} />
       </Button>
     </div>

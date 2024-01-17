@@ -1,9 +1,8 @@
-import React from 'react'
 
-import { render, fireEvent } from '@testing-library/react'
+import { render } from '@testing-library/react';
 
-import '@testing-library/jest-dom'
-import { Button } from '.'
+import '@testing-library/jest-dom';
+import { Button } from '.';
 import styles from './button.module.scss';
 
 describe('<Button />', () => {

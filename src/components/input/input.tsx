@@ -6,9 +6,9 @@ export type InputProps = {
   placeholder: string
 }
 
-export const Input: React.FC<InputProps> = ({ placeholder }) => {
+export const Input: React.FC<InputProps> = ({ placeholder, ...rest }) => {
   return (
-    <input className={styles.input} placeholder={placeholder} />
+    <input {...rest} name='task' className={styles.input} placeholder={placeholder} />
   )
 }
 

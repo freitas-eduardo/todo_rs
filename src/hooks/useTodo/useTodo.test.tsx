@@ -14,22 +14,22 @@ describe('useTodo', () => {
   it('should add a new task  ', () => {
     const { result } = renderHook(() => useTodo())
     act(() => result.current.addTask(mockTask))
-    expect(result.current.todo.length).toBe(3)
+    expect(result.current.tasks.length).toBe(3)
 
   });
   it('should remove a task ', () => {
     const { result } = renderHook(() => useTodo())
 
-    act(() => result.current.removeTask(result.current.todo[0].id))
-    expect(result.current.todo.length).toBe(1)
+    act(() => result.current.removeTask(result.current.tasks[0].id))
+    expect(result.current.tasks.length).toBe(1)
 
   });
 
   it('should toggle status task ', () => {
     const { result } = renderHook(() => useTodo())
 
-    act(() => result.current.toggleTask(result.current.todo[0].id))
-    expect(result.current.todo[0].isDone).toBe(false)
+    act(() => result.current.toggleTask(result.current.tasks[0].id))
+    expect(result.current.tasks[0].isDone).toBe(false)
   });
 
 

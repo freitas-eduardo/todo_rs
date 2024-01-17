@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
-export type Todo = {
-  id: number
-  text: string
-  isChecked: boolean
+export type Task = {
+  id: string,
+  content: string,
+  isDone: boolean,
+
 }
 
 
@@ -22,28 +23,40 @@ const listOfTasks = [
 ]
 
 export function useTodo() {
-  const [todo, setTodo] = useState(listOfTasks)
+  const [tasks, setTask] = useState<Task[]>(listOfTasks)
 
   const removeTask = (id: string) => {
-    const filteredTasks = todo.filter((it) => it.id !== id)
-    setTodo(filteredTasks)
+    const filteredTasks = tasks.filter((it) => it.id !== id)
+    setTask(filteredTasks)
 
   }
 
   const toggleTask = (id: string) => {
-    const updatedTasks = todo.map((task) => {
+    const updatedTasks = tasks.map((task) => {
       if (task.id === id) return { ...task, isDone: !task.isDone }
       return { ...task }
     })
-    setTodo(updatedTasks)
+    setTask(updatedTasks)
   }
 
-  const addTask = (newTask: Todo) => {
-    setTodo([...todo, newTask])
+  const addTask = (newTask: Task) => {
+    setTask([...tasks, newTask])
+  }
+
+  const getInfoTasks = () => {
+    const checkedTask = tasks.filter((task) => task.isDone !== false).length
+    const totalOfTask = tasks.length
+
+    return {
+      checkedTask,
+      totalOfTask
+    }
+
   }
 
   return {
-    todo,
+    tasks,
+    getInfoTasks,
     toggleTask,
     addTask,
     removeTask
